@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JUST FLOWER | Fresh Flowers & Bouquets</title>
+
+    <meta name="description"
+        content="JUST FLOWER - Beautiful fresh flowers and elegant bouquets for every special occasion.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        🌸 Fresh Flowers
+        <span>•</span>
+        Same Day Delivery
+        <span>•</span>
+        Make Every Moment Special 🌷
+    </div>
+
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <div class="flower-logo">
+                ✿
+            </div>
+
+            <div>
+                <h1>JUST FLOWER</h1>
+                <p>FLOWERS FOR EVERY OCCASION</p>
+            </div>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="#" class="active">
+                Home
+            </a>
+
+            <a href="#bouquets">
+                Shop
+            </a>
+
+            <a href="#bouquets">
+                Bouquets
+            </a>
+
+            <a href="#occasions">
+                Occasions
+            </a>
+
+            <a href="#about">
+                About Us
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="nav-icons">
+
+            <span>⌕</span>
+
+            <span>♙</span>
+
+            <span class="cart-icon">
+                🛒
+                <small id="cartCount">0</small>
+            </span>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                FRESH FLOWERS
+            </p>
+
+
+            <h2>
+                Beautiful Bouquets<br>
+                for Every Occasion
+            </h2>
+
+
+            <p class="hero-text">
+                Make your special moments more memorable
+                with our fresh and elegant flower arrangements.
+            </p>
+
+
+            <button onclick="scrollToProducts()">
+                Shop Now →
+            </button>
+
+
+            <div class="features">
+
+                <div>
+
+                    <span>
+                        ♧
+                    </span>
+
+                    <p>
+                        Fresh & Premium<br>
+                        Flowers
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        ♧
+                    </span>
+
+                    <p>
+                        Same Day<br>
+                        Delivery
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        ♡
+                    </span>
+
+                    <p>
+                        Happiness<br>
+                        Guaranteed
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO IMAGE -->
+
+        <div class="hero-image">
+
+            <img
+                src="images/flower1.jpg.jpg"
+                alt="Pink Flower Bouquet"
+            >
+
+            <div class="hero-quote">
+
+                Flowers<br>
+                Speak<br>
+                Love ♡
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PRODUCTS -->
+
+    <section
+        class="products"
+        id="bouquets"
+    >
+
+        <div class="section-heading">
+
+            <p>
+                BEST SELLERS
+            </p>
+
+            <h2>
+                Our Popular Bouquets
+            </h2>
+
+        </div>
+
+
+        <div class="product-grid">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product-card">
+
+                <img
+                    src="images/flower1.jpg.jpg"
+                    alt="Pink Dreams Bouquet"
+                >
+
+                <h3>
+                    Pink Dreams Bouquet
+                </h3>
+
+                <p class="price">
+                    50 SAR
+                </p>
+
+                <button
+                    onclick="addToCart('Pink Dreams Bouquet')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product-card">
+
+                <img
+                    src="images/flower2.webp.webp"
+                    alt="Red Romance Bouquet"
+                >
+
+                <h3>
+                    Red Romance Bouquet
+                </h3>
+
+                <p class="price">
+                    75 SAR
+                </p>
+
+                <button
+                    onclick="addToCart('Red Romance Bouquet')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product-card">
+
+                <img
+                    src="images/flower3.webp.webp"
+                    alt="Mixed Flower Collection"
+                >
+
+                <h3>
+                    Mixed Flower Collection
+                </h3>
+
+                <p class="price">
+                    60 SAR
+                </p>
+
+                <button
+                    onclick="addToCart('Mixed Flower Collection')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- OCCASIONS -->
+
+    <section
+        class="why-us"
+        id="occasions"
+    >
+
+        <p>
+            FLOWERS FOR EVERY MOMENT
+        </p>
+
+        <h2>
+            Make Every Occasion Special
+        </h2>
+
+
+        <div class="why-grid">
+
+
+            <div>
+
+                <div class="why-icon">
+                    🌹
+                </div>
+
+                <h3>
+                    Birthday
+                </h3>
+
+                <p>
+                    Beautiful flowers for birthday celebrations.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="why-icon">
+                    💐
+                </div>
+
+                <h3>
+                    Anniversary
+                </h3>
+
+                <p>
+                    Say something special with flowers.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="why-icon">
+                    💗
+                </div>
+
+                <h3>
+                    Special Moments
+                </h3>
+
+                <p>
+                    Flowers for every memorable moment.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ABOUT -->
+
+    <section
+        class="contact"
+        id="about"
+    >
+
+        <h2>
+            Why Choose JUST FLOWER?
+        </h2>
+
+        <p>
+            Fresh flowers, beautiful arrangements
+            and reliable delivery.
+        </p>
+
+        <button onclick="orderNow()">
+            Order Now
+        </button>
+
+    </section>
+
+
+
+    <!-- CONTACT -->
+
+    <section
+        class="contact"
+        id="contact"
+    >
+
+        <h2>
+            Need a Special Bouquet?
+        </h2>
+
+        <p>
+            Contact us and tell us what you need.
+        </p>
+
+        <button onclick="orderNow()">
+            Order Now
+        </button>
+
+    </section>
+
+
+
+    <!-- WHATSAPP -->
+
+    <button
+        class="whatsapp"
+        onclick="orderNow()"
+    >
+        WhatsApp
+    </button>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>
+            JUST FLOWER
+        </h2>
+
+        <p>
+            Flowers for Every Occasion
+        </p>
+
+        <p>
+            © 2026 JUST FLOWER. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
