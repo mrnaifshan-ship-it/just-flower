@@ -1,160 +1,123 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>JUST FLOWER | Fresh Flowers & Bouquets</title>
+    <title>JUST FLOWER - Saudi Flower Delivery</title>
 
-    <meta name="description"
-        content="JUST FLOWER - Beautiful fresh flowers and elegant bouquets for every special occasion.">
+    <meta
+        name="description"
+        content="JUST FLOWER - Beautiful flowers available for order in Saudi Arabia."
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        🌸 Fresh Flowers
-        <span>•</span>
-        Same Day Delivery
-        <span>•</span>
-        Make Every Moment Special 🌷
-    </div>
-
-
-    <!-- NAVBAR -->
-    <nav class="navbar">
-
-        <div class="logo">
-
-            <div class="flower-logo">
-                ✿
-            </div>
-
-            <div>
-                <h1>JUST FLOWER</h1>
-                <p>FLOWERS FOR EVERY OCCASION</p>
-            </div>
-
+    <header>
+        <div class="container">
+            <h1>🌸 JUST FLOWER</h1>
+            <p>Beautiful Flowers • Saudi Arabia</p>
         </div>
+    </header>
 
-
-        <div class="nav-links">
-
-            <a href="#" class="active">
-                Home
-            </a>
-
-            <a href="#bouquets">
-                Shop
-            </a>
-
-            <a href="#bouquets">
-                Bouquets
-            </a>
-
-            <a href="#occasions">
-                Occasions
-            </a>
-
-            <a href="#about">
-                About Us
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </div>
-
-
-        <div class="nav-icons">
-
-            <span>⌕</span>
-
-            <span>♙</span>
-
-            <span class="cart-icon">
-                🛒
-                <small id="cartCount">0</small>
-            </span>
-
-        </div>
-
-    </nav>
-
-
-
-    <!-- HERO SECTION -->
 
     <section class="hero">
+        <div class="container">
+            <h2>Send Someone Flowers 🌷</h2>
+            <p>Make someone's day special with a beautiful flower bouquet.</p>
 
-        <div class="hero-content">
-
-            <p class="small-title">
-                FRESH FLOWERS
-            </p>
-
-
-            <h2>
-                Beautiful Bouquets<br>
-                for Every Occasion
-            </h2>
+            <a href="#flowers" class="hero-btn">View Flowers</a>
+        </div>
+    </section>
 
 
-            <p class="hero-text">
-                Make your special moments more memorable
-                with our fresh and elegant flower arrangements.
-            </p>
+    <section id="flowers" class="flowers-section">
+
+        <div class="container">
+
+            <h2>Our Flowers</h2>
+
+            <div class="products">
 
 
-            <button onclick="scrollToProducts()">
-                Shop Now →
-            </button>
+                <!-- Flower 1 -->
+                <div class="product-card">
 
+                    <img
+                        src="flower1.jpg.jpg"
+                        alt="Pink Dreams Bouquet"
+                    >
 
-            <div class="features">
+                    <h3>Pink Dreams Bouquet</h3>
 
-                <div>
+                    <p class="price">50 SAR</p>
 
-                    <span>
-                        ♧
-                    </span>
+                    <button onclick="orderNow('Pink Dreams Bouquet', 50)">
+                        Order Now
+                    </button>
 
-                    <p>
-                        Fresh & Premium<br>
-                        Flowers
-                    </p>
-
-                </div>
-
-
-                <div>
-
-                    <span>
-                        ♧
-                    </span>
-
-                    <p>
-                        Same Day<br>
-                        Delivery
-                    </p>
+                    <button
+                        class="cart-btn"
+                        onclick="addToCart('Pink Dreams Bouquet')"
+                    >
+                        Add to Cart
+                    </button>
 
                 </div>
 
 
-                <div>
+                <!-- Flower 2 -->
+                <div class="product-card">
 
-                    <span>
-                        ♡
-                    </span>
+                    <img
+                        src="flower2.webp.webp"
+                        alt="Red Romance Bouquet"
+                    >
 
-                    <p>
-                        Happiness<br>
-                        Guaranteed
-                    </p>
+                    <h3>Red Romance Bouquet</h3>
+
+                    <p class="price">75 SAR</p>
+
+                    <button onclick="orderNow('Red Romance Bouquet', 75)">
+                        Order Now
+                    </button>
+
+                    <button
+                        class="cart-btn"
+                        onclick="addToCart('Red Romance Bouquet')"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+
+                <!-- Flower 3 -->
+                <div class="product-card">
+
+                    <img
+                        src="flower3.webp.webp"
+                        alt="Mixed Flower Collection"
+                    >
+
+                    <h3>Mixed Flower Collection</h3>
+
+                    <p class="price">60 SAR</p>
+
+                    <button onclick="orderNow('Mixed Flower Collection', 60)">
+                        Order Now
+                    </button>
+
+                    <button
+                        class="cart-btn"
+                        onclick="addToCart('Mixed Flower Collection')"
+                    >
+                        Add to Cart
+                    </button>
 
                 </div>
 
@@ -162,292 +125,28 @@
 
         </div>
 
-
-        <!-- HERO IMAGE -->
-
-        <div class="hero-image">
-
-            <img
-                src="images/flower1.jpg.jpg"
-                alt="Pink Flower Bouquet"
-            >
-
-            <div class="hero-quote">
-
-                Flowers<br>
-                Speak<br>
-                Love ♡
-
-            </div>
-
-        </div>
-
     </section>
 
-
-
-    <!-- PRODUCTS -->
-
-    <section
-        class="products"
-        id="bouquets"
-    >
-
-        <div class="section-heading">
-
-            <p>
-                BEST SELLERS
-            </p>
-
-            <h2>
-                Our Popular Bouquets
-            </h2>
-
-        </div>
-
-
-        <div class="product-grid">
-
-
-            <!-- PRODUCT 1 -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/flower1.jpg.jpg"
-                    alt="Pink Dreams Bouquet"
-                >
-
-                <h3>
-                    Pink Dreams Bouquet
-                </h3>
-
-                <p class="price">
-                    50 SAR
-                </p>
-
-                <button
-                    onclick="addToCart('Pink Dreams Bouquet')"
-                >
-                    🛒 Add to Cart
-                </button>
-
-            </div>
-
-
-
-            <!-- PRODUCT 2 -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/flower2.webp.webp"
-                    alt="Red Romance Bouquet"
-                >
-
-                <h3>
-                    Red Romance Bouquet
-                </h3>
-
-                <p class="price">
-                    75 SAR
-                </p>
-
-                <button
-                    onclick="addToCart('Red Romance Bouquet')"
-                >
-                    🛒 Add to Cart
-                </button>
-
-            </div>
-
-
-
-            <!-- PRODUCT 3 -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/flower3.webp.webp"
-                    alt="Mixed Flower Collection"
-                >
-
-                <h3>
-                    Mixed Flower Collection
-                </h3>
-
-                <p class="price">
-                    60 SAR
-                </p>
-
-                <button
-                    onclick="addToCart('Mixed Flower Collection')"
-                >
-                    🛒 Add to Cart
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- OCCASIONS -->
-
-    <section
-        class="why-us"
-        id="occasions"
-    >
-
-        <p>
-            FLOWERS FOR EVERY MOMENT
-        </p>
-
-        <h2>
-            Make Every Occasion Special
-        </h2>
-
-
-        <div class="why-grid">
-
-
-            <div>
-
-                <div class="why-icon">
-                    🌹
-                </div>
-
-                <h3>
-                    Birthday
-                </h3>
-
-                <p>
-                    Beautiful flowers for birthday celebrations.
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <div class="why-icon">
-                    💐
-                </div>
-
-                <h3>
-                    Anniversary
-                </h3>
-
-                <p>
-                    Say something special with flowers.
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <div class="why-icon">
-                    💗
-                </div>
-
-                <h3>
-                    Special Moments
-                </h3>
-
-                <p>
-                    Flowers for every memorable moment.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ABOUT -->
-
-    <section
-        class="contact"
-        id="about"
-    >
-
-        <h2>
-            Why Choose JUST FLOWER?
-        </h2>
-
-        <p>
-            Fresh flowers, beautiful arrangements
-            and reliable delivery.
-        </p>
-
-        <button onclick="orderNow()">
-            Order Now
-        </button>
-
-    </section>
-
-
-
-    <!-- CONTACT -->
-
-    <section
-        class="contact"
-        id="contact"
-    >
-
-        <h2>
-            Need a Special Bouquet?
-        </h2>
-
-        <p>
-            Contact us and tell us what you need.
-        </p>
-
-        <button onclick="orderNow()">
-            Order Now
-        </button>
-
-    </section>
-
-
-
-    <!-- WHATSAPP -->
-
-    <button
-        class="whatsapp"
-        onclick="orderNow()"
-    >
-        WhatsApp
-    </button>
-
-
-
-    <!-- FOOTER -->
 
     <footer>
 
-        <h2>
-            JUST FLOWER
-        </h2>
+        <div class="container">
 
-        <p>
-            Flowers for Every Occasion
-        </p>
+            <h3>🌸 JUST FLOWER</h3>
 
-        <p>
-            © 2026 JUST FLOWER. All Rights Reserved.
-        </p>
+            <p>Beautiful flowers delivered with love.</p>
+
+            <p>Saudi Arabia 🇸🇦</p>
+
+            <p>© 2026 JUST FLOWER. All Rights Reserved.</p>
+
+        </div>
 
     </footer>
-
 
 
     <script src="script.js"></script>
 
 </body>
 </html>
+```
