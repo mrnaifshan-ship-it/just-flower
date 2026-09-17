@@ -1,90 +1,89 @@
-```javascript
 let cart = [];
-
-let selectedProduct = "";
-let selectedPrice = 0;
-
-
-/* ORDER NOW */
+let currentProduct = "";
+let currentPrice = 0;
 
 function orderNow(product, price) {
+    currentProduct = product;
+    currentPrice = price;
 
-    selectedProduct = product;
-    selectedPrice = price;
+    document.getElementById("selected-product").textContent = product;
+    document.getElementById("selected-price").textContent = price + " SAR";
 
-    document.getElementById("selected-product").textContent =
-        product;
-
-    document.getElementById("selected-price").textContent =
+    document.getElementById("summary-flower-price").textContent =
         price + " SAR";
 
-    document.getElementById("order-modal").classList.add("active");
+    document.getElementById("delivery-charge").textContent =
+        "0 SAR";
+
+    document.getElementById("order-total").textContent =
+        price + " SAR";
+
+    document.getElementById("distance").value = "";
+
+    document.getElementById("order-modal").style.display = "flex";
 }
 
+function calculateTotal() {
+    const deliveryCharge = Number(
+        document.getElementById("distance").value
+    );
 
-/* CONFIRM ORDER */
+    const total = currentPrice + deliveryCharge;
+
+    document.getElementById("delivery-charge").textContent =
+        deliveryCharge + " SAR";
+
+    document.getElementById("order-total").textContent =
+        total + " SAR";
+}
 
 function confirmOrder() {
+    const name = document.getElementById("customer-name").value.trim();
+    const phone = document.getElementById("customer-phone").value.trim();
+    const address = document.getElementById("customer-message").value.trim();
+    const distance = document.getElementById("distance").value;
 
-    const name =
-        document.getElementById("customer-name").value.trim();
-
-    const phone =
-        document.getElementById("customer-phone").value.trim();
-
-    const message =
-        document.getElementById("customer-message").value.trim();
-
-
-    if (!name || !phone) {
-
-        alert("Please enter your name and WhatsApp number.");
-
+    if (!name || !phone || !address || !distance) {
+        alert("Please fill in all order details.");
         return;
     }
 
-
-    const orderText =
-        "JUST FLOWER Order%0A%0A" +
-        "Product: " + selectedProduct + "%0A" +
-        "Price: " + selectedPrice + " SAR%0A" +
-        "Name: " + encodeURIComponent(name) + "%0A" +
-        "WhatsApp: " + encodeURIComponent(phone) + "%0A" +
-        "Details: " + encodeURIComponent(message);
-
-
-    /*
-      Replace YOUR_SAUDI_WHATSAPP_NUMBER
-      with the actual Saudi WhatsApp number later.
-
-      Example:
-      9665XXXXXXXX
-    */
+    const deliveryCharge = Number(distance);
+    const total = currentPrice + deliveryCharge;
 
     const whatsappNumber = "YOUR_SAUDI_WHATSAPP_NUMBER";
 
     if (whatsappNumber === "YOUR_SAUDI_WHATSAPP_NUMBER") {
-
         alert(
-            "Your order form is working! " +
-            "Add the Saudi WhatsApp number in script.js to receive orders."
+            "Order details are ready. WhatsApp number will be connected soon.\n\n" +
+            "Product: " + currentProduct + "\n" +
+            "Flower Price: " + currentPrice + " SAR\n" +
+            "Delivery: " + deliveryCharge + " SAR\n" +
+            "Total: " + total + " SAR"
         );
-
         return;
     }
 
+    const whatsappMessage =
+        "JUST FLOWER ORDER\n\n" +
+        "Product: " + currentProduct + "\n" +
+        "Flower Price: " + currentPrice + " SAR\n" +
+        "Delivery Charge: " + deliveryCharge + " SAR\n" +
+        "Total: " + total + " SAR\n\n" +
+        "Customer Name: " + name + "\n" +
+        "WhatsApp: " + phone + "\n" +
+        "Delivery Address: " + address;
 
-    window.open(
-        "https://wa.me/" + whatsappNumber + "?text=" + orderText,
-        "_blank"
-    );
+    const url =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(whatsappMessage);
+
+    window.open(url, "_blank");
 }
 
-
-/* ADD TO CART */
-
 function addToCart(product, price) {
-
     cart.push({
         product: product,
         price: price
@@ -95,181 +94,82 @@ function addToCart(product, price) {
     alert(product + " added to cart!");
 }
 
-
-/* UPDATE CART COUNT */
-
 function updateCartCount() {
-
     document.getElementById("cart-count").textContent =
         cart.length;
 }
 
-
-/* SHOW CART */
-
 function showCart() {
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
 
-    const cartItems =
-        document.getElementById("cart-items");
-
-    const cartTotal =
-        document.getElementById("cart-total");
-
+    cartItems.innerHTML = "";
 
     if (cart.length === 0) {
-
-        cartItems.innerHTML =
-            "<p>Your cart is empty.</p>";
-
-        cartTotal.textContent =
-            "Total: 0 SAR";
-
+        cartItems.innerHTML = "<p>Your cart is empty.</p>";
+        cartTotal.textContent = "Total: 0 SAR";
     } else {
-
-        let html = "";
         let total = 0;
 
-
         cart.forEach(function(item, index) {
-
             total += item.price;
 
-            html += `
+            cartItems.innerHTML += `
                 <div class="cart-item">
-                    <span>
-                        ${item.product}
-                    </span>
-
-                    <strong>
-                        ${item.price} SAR
-                    </strong>
+                    <span>${item.product}</span>
+                    <span>${item.price} SAR</span>
+                    <button onclick="removeFromCart(${index})">
+                        Remove
+                    </button>
                 </div>
             `;
-
         });
 
-
-        cartItems.innerHTML = html;
-
-        cartTotal.textContent =
-            "Total: " + total + " SAR";
+        cartTotal.textContent = "Total: " + total + " SAR";
     }
 
-
-    document.getElementById("cart-modal")
-        .classList.add("active");
+    document.getElementById("cart-modal").style.display = "flex";
 }
 
+function removeFromCart(index) {
+    cart.splice(index, 1);
 
-/* CLOSE CART */
-
-function closeCart() {
-
-    document.getElementById("cart-modal")
-        .classList.remove("active");
+    updateCartCount();
+    showCart();
 }
-
-
-/* CHECKOUT CART */
 
 function checkoutCart() {
-
     if (cart.length === 0) {
-
         alert("Your cart is empty.");
-
         return;
     }
 
-
-    const items =
-        cart.map(function(item) {
-
-            return item.product +
-                " - " +
-                item.price +
-                " SAR";
-
-        }).join("\n");
-
-
-    let total = 0;
-
-    cart.forEach(function(item) {
-        total += item.price;
-    });
-
-
-    const message =
-        "JUST FLOWER Cart Order\n\n" +
-        items +
-        "\n\nTotal: " +
-        total +
-        " SAR";
-
-
-    const whatsappNumber =
-        "YOUR_SAUDI_WHATSAPP_NUMBER";
-
-
-    if (whatsappNumber === "YOUR_SAUDI_WHATSAPP_NUMBER") {
-
-        alert(
-            "Cart is working! Add the Saudi WhatsApp number in script.js."
-        );
-
-        return;
-    }
-
-
-    window.open(
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
-        encodeURIComponent(message),
-        "_blank"
-    );
+    alert("Cart checkout will be connected to WhatsApp soon.");
 }
-
-
-/* CONTACT */
 
 function showContact() {
-
-    alert(
-        "Thank you for contacting JUST FLOWER! " +
-        "WhatsApp ordering will be available soon."
-    );
+    alert("WhatsApp contact will be available soon.");
 }
-
-
-/* CLOSE ORDER MODAL */
 
 function closeModal() {
-
-    document.getElementById("order-modal")
-        .classList.remove("active");
+    document.getElementById("order-modal").style.display =
+        "none";
 }
 
+function closeCart() {
+    document.getElementById("cart-modal").style.display =
+        "none";
+}
 
-/* CLICK OUTSIDE MODAL */
-
-window.addEventListener("click", function(event) {
-
-    const orderModal =
-        document.getElementById("order-modal");
-
-    const cartModal =
-        document.getElementById("cart-modal");
-
+window.onclick = function(event) {
+    const orderModal = document.getElementById("order-modal");
+    const cartModal = document.getElementById("cart-modal");
 
     if (event.target === orderModal) {
-        closeModal();
+        orderModal.style.display = "none";
     }
 
     if (event.target === cartModal) {
-        closeCart();
+        cartModal.style.display = "none";
     }
-
-});
-```
+};
