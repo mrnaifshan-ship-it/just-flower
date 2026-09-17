@@ -546,8 +546,42 @@ footer {
     justify-content: center;
 
     padding: 20px;
+}    
+.modal-box label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 7px;
+    font-weight: 600;
 }
 
+.modal-box select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    background: white;
+}
+
+.order-summary {
+    margin-top: 18px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #f8f8f8;
+}
+
+.order-summary div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.order-summary .summary-total {
+    border-top: 1px solid #ddd;
+    padding-top: 12px;
+    margin-top: 12px;
+    font-size: 18px;
+}
 .modal.active {
     display: flex;
 }
